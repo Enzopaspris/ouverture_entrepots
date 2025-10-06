@@ -1,8 +1,9 @@
 #include <iostream>
 #include "../include/fonctions.hpp"
-using namespace std;
+#include "../include/structure.hpp"
 
+int main() {
+    
 
-int main(){
     return 0;
 }

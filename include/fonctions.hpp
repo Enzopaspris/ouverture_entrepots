@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
-using namespace std;
+#include "structure.hpp"
 
-
+bool est_ouvert(const Entrepot &entrepot);
