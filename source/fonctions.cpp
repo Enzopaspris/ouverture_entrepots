@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 
-#include "../lib/structure.hpp"
+#include "../include/structure.hpp"
 
 
