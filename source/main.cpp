@@ -1,5 +1,5 @@
 #include <iostream>
-#include "fonctions.cpp"
+#include "../include/fonctions.hpp"
 using namespace std;
 
 
