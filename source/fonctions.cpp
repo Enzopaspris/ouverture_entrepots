@@ -33,3 +33,12 @@ bool est_approvisionne(const Magasin magasin) {
    }
    return false;
 }
+
+//La fonction qui somme le coût d’approvisionnement par entrepôt
+int somme_approvisionnement(const Entrepot &entrepot) {
+    int somme = 0;
+    for (int i = 0; i < entrepot.cout_app.size(); i++) {
+        somme += entrepot.cout_app[i];
+    }
+    return somme;
+}
