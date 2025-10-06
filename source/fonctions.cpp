@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cstdlib>
+#include "../include/fonctions.hpp"
 
 #include "../include/structure.hpp"
 
