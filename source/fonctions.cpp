@@ -26,6 +26,7 @@ double ratio_ouv_capa(const Entrepot entrepot) {
    return entrepot.cout_ouv / entrepot.capa_max;
 }
 
+//La fonction vérifie qu’un magasin est approvisionné par un seul entrepôt
 bool est_approvisionne(const Magasin magasin) {
    if (magasin.entrepot_lie != -1) {
        return true;
