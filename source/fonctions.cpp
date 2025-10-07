@@ -1,4 +1,6 @@
 #include <iostream>
+#include <set>
+#include <vector>
 #include "../include/fonctions.hpp"
 using namespace std;
 
@@ -41,4 +43,43 @@ int somme_approvisionnement(const Entrepot &entrepot) {
         somme += entrepot.cout_app[i];
     }
     return somme;
+}
+
+// Fonction récursive pour générer toutes les combinaisons
+void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m) {
+    if (magasin == m) {
+        // Calculer la somme des coûts d'approvisionnement
+        int somme = 0;
+        set<int> entrepots_utilises; // pour le coût d'ouverture
+        for (int i = 0; i < m; i++) {
+            somme += ent[choix[i]].cout_app[i];
+            entrepots_utilises.insert(choix[i]);
+        }
+
+        // Ajouter le coût d'ouverture des entrepôts utilisés
+        for (int e : entrepots_utilises) {
+            somme += ent[e].cout_ouv;
+        }
+
+        // Affichage de la combinaison
+        for (int i = 0; i < m; i++) {
+            cout << "M" << i << "->E" << choix[i]+1 << " ";
+        }
+        cout << "=> Coût total = " << somme << endl;
+        return;
+
+    }
+
+    // Boucle sur tous les entrepôts possibles pour ce magasin
+    for (int e = 0; e < ent.size(); e++) {
+        if (depassement(ent[e])) {  // Vérifie la capacité max
+            choix[magasin] = e;
+            ent[e].capa_actuel += 1; // Incrémente de la capa actuelle de l'entrepôt
+
+            generer_combi(ent, choix, magasin + 1, m);
+
+            ent[e].capa_actuel -= 1;  // Décrémente la capa actuelle pour revenir comme avant la récursion
+        }
+    }
+
 }
