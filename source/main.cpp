@@ -15,10 +15,8 @@ int main() {
         {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3},
     };
 
-    int m = 10; // nombre de magasins
-
     // Appel de la fonction qui gère la combinaison et l'interaction
-    choix_meilleure_combinaison(ent, m);
+    choix_meilleure_combinaison(ent, nb_magasin(ent));
 
     return 0;
 }

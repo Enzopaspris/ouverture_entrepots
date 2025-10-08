@@ -11,6 +11,10 @@
 
 using namespace std;
 
+int nb_magasin(vector<Entrepot>& entrepot) {
+    return entrepot[0].cout_app.size(); // nombre de magasins
+}
+
 /**
  * @brief Vérifie si un entrepôt peut accueillir une livraison supplémentaire
  * 
