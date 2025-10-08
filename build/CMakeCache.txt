@@ -116,13 +116,13 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_DESCRIPTION:STATIC=
+CMAKE_PROJECT_DESCRIPTION:STATIC=Simulation d'affectation de magasins à des entrepôts
 
 //Value Computed by CMake
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ouverture_entrepots
+CMAKE_PROJECT_NAME:STATIC=GestionEntrepots
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -202,13 +202,13 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-ouverture_entrepots_BINARY_DIR:STATIC=/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepots/build
+GestionEntrepots_BINARY_DIR:STATIC=/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepots/build
 
 //Value Computed by CMake
-ouverture_entrepots_IS_TOP_LEVEL:STATIC=ON
+GestionEntrepots_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-ouverture_entrepots_SOURCE_DIR:STATIC=/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepots
+GestionEntrepots_SOURCE_DIR:STATIC=/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepots
 
 
 ########################

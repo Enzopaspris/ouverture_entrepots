@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = "/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepot
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -117,24 +127,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ouverture_entrepots
+# Target rules for targets named GestionEntrepots
 
 # Build rule for target.
-ouverture_entrepots: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ouverture_entrepots
-.PHONY : ouverture_entrepots
+GestionEntrepots: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GestionEntrepots
+.PHONY : GestionEntrepots
 
 # fast build rule for target.
-ouverture_entrepots/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/build
-.PHONY : ouverture_entrepots/fast
+GestionEntrepots/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/build
+.PHONY : GestionEntrepots/fast
 
 source/fonctions.o: source/fonctions.cpp.o
 .PHONY : source/fonctions.o
 
 # target to build an object file
 source/fonctions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/fonctions.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.o
 .PHONY : source/fonctions.cpp.o
 
 source/fonctions.i: source/fonctions.cpp.i
@@ -142,7 +152,7 @@ source/fonctions.i: source/fonctions.cpp.i
 
 # target to preprocess a source file
 source/fonctions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/fonctions.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.i
 .PHONY : source/fonctions.cpp.i
 
 source/fonctions.s: source/fonctions.cpp.s
@@ -150,7 +160,7 @@ source/fonctions.s: source/fonctions.cpp.s
 
 # target to generate assembly for a file
 source/fonctions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/fonctions.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.s
 .PHONY : source/fonctions.cpp.s
 
 source/main.o: source/main.cpp.o
@@ -158,7 +168,7 @@ source/main.o: source/main.cpp.o
 
 # target to build an object file
 source/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/main.cpp.o
 .PHONY : source/main.cpp.o
 
 source/main.i: source/main.cpp.i
@@ -166,7 +176,7 @@ source/main.i: source/main.cpp.i
 
 # target to preprocess a source file
 source/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/main.cpp.i
 .PHONY : source/main.cpp.i
 
 source/main.s: source/main.cpp.s
@@ -174,7 +184,7 @@ source/main.s: source/main.cpp.s
 
 # target to generate assembly for a file
 source/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ouverture_entrepots.dir/build.make CMakeFiles/ouverture_entrepots.dir/source/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
 
 # Help Target
@@ -185,7 +195,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ouverture_entrepots"
+	@echo "... test"
+	@echo "... GestionEntrepots"
 	@echo "... source/fonctions.o"
 	@echo "... source/fonctions.i"
 	@echo "... source/fonctions.s"

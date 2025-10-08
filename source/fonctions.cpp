@@ -39,7 +39,7 @@ bool est_approvisionne(const Magasin magasin) {
 //La fonction qui somme le coût d’approvisionnement par entrepôt
 int somme_approvisionnement(const Entrepot &entrepot) {
     int somme = 0;
-    for (int i = 0; i < entrepot.cout_app.size(); i++) {
+    for (size_t i = 0; i < entrepot.cout_app.size(); i++) {
         somme += entrepot.cout_app[i];
     }
     return somme;
@@ -71,7 +71,7 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
     }
 
     // Boucle sur tous les entrepôts possibles pour ce magasin
-    for (int e = 0; e < ent.size(); e++) {
+    for (size_t e = 0; e < ent.size(); e++) {
         if (depassement(ent[e])) {  // Vérifie la capacité max
             choix[magasin] = e;
             ent[e].capa_actuel += 1; // Incrémente de la capa actuelle de l'entrepôt

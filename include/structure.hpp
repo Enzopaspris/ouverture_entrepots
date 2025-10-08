@@ -8,10 +8,9 @@ struct Entrepot {
     unsigned int capa_actuel;
     unsigned int capa_max;
     bool est_ouvert = false;
-
-
 };
 
 struct Magasin {
     int entrepot_lie = -1;
 };
+

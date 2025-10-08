@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/home/etud/Documents/LP INFO/PROJET_1/git/ouverture_entrepots/include"
 
-CXX_FLAGS = -std=c++17
+CXX_FLAGS = -Wall -Wextra -Wpedantic -std=c++17
 

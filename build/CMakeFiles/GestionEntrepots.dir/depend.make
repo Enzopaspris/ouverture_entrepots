@@ -1,2 +1,2 @@
-# Empty dependencies file for ouverture_entrepots.
+# Empty dependencies file for GestionEntrepots.
 # This may be replaced when dependencies are built.
