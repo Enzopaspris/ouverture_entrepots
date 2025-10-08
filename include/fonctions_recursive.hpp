@@ -1,9 +1,11 @@
 #pragma once
+#include <vector>
 #include "structure.hpp"
 
-bool est_ouvert(const Entrepot entrepot);
-bool depassement(const Entrepot entrepot);
-double ratio_ouv_capa(const Entrepot entrepot);
-bool est_approvisionne(const Magasin magasin);
-int somme_approvisionnement(const Entrepot &entrepot);
-void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m);
+using namespace std;
+
+bool depassement(const Entrepot& entrepot);
+
+void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m, vector<int>& meilleure_combinaison, int& cout_min, bool afficher_tout = false);
+
+void choix_meilleure_combinaison(vector<Entrepot>& ent, int m);

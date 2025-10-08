@@ -139,29 +139,29 @@ GestionEntrepots/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/build
 .PHONY : GestionEntrepots/fast
 
-source/fonctions.o: source/fonctions.cpp.o
-.PHONY : source/fonctions.o
+source/fonctions_recursive.o: source/fonctions_recursive.cpp.o
+.PHONY : source/fonctions_recursive.o
 
 # target to build an object file
-source/fonctions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.o
-.PHONY : source/fonctions.cpp.o
+source/fonctions_recursive.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions_recursive.cpp.o
+.PHONY : source/fonctions_recursive.cpp.o
 
-source/fonctions.i: source/fonctions.cpp.i
-.PHONY : source/fonctions.i
+source/fonctions_recursive.i: source/fonctions_recursive.cpp.i
+.PHONY : source/fonctions_recursive.i
 
 # target to preprocess a source file
-source/fonctions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.i
-.PHONY : source/fonctions.cpp.i
+source/fonctions_recursive.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions_recursive.cpp.i
+.PHONY : source/fonctions_recursive.cpp.i
 
-source/fonctions.s: source/fonctions.cpp.s
-.PHONY : source/fonctions.s
+source/fonctions_recursive.s: source/fonctions_recursive.cpp.s
+.PHONY : source/fonctions_recursive.s
 
 # target to generate assembly for a file
-source/fonctions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions.cpp.s
-.PHONY : source/fonctions.cpp.s
+source/fonctions_recursive.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionEntrepots.dir/build.make CMakeFiles/GestionEntrepots.dir/source/fonctions_recursive.cpp.s
+.PHONY : source/fonctions_recursive.cpp.s
 
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
@@ -197,9 +197,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GestionEntrepots"
-	@echo "... source/fonctions.o"
-	@echo "... source/fonctions.i"
-	@echo "... source/fonctions.s"
+	@echo "... source/fonctions_recursive.o"
+	@echo "... source/fonctions_recursive.i"
+	@echo "... source/fonctions_recursive.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

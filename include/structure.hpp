@@ -13,4 +13,3 @@ struct Entrepot {
 struct Magasin {
     int entrepot_lie = -1;
 };
-
