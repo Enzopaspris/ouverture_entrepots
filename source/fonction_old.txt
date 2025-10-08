@@ -1,0 +1,54 @@
+/**
+ * @brief Vérifie si un entrepôt est ouvert
+ * 
+ * @param entrepot L'entrepôt à vérifier
+ * @return true si l'entrepôt est ouvert
+ * @return false sinon
+ */
+bool est_ouvert(const Entrepot entrepot) {
+    return entrepot.est_ouvert;
+}
+
+/**
+ * @brief Calcule le ratio coût d'ouverture / capacité maximale
+ * 
+ * @param entrepot L'entrepôt à analyser
+ * @return double Le ratio coût d'ouverture sur capacité maximale
+ *         Retourne 0 si la capacité maximale est nulle
+ */
+double ratio_ouv_capa(const Entrepot entrepot) {
+    if (entrepot.capa_max == 0) {
+        cout << "La capacité maximale de l'entrepôt est de 0" << endl;
+        return 0.0;    
+    }
+    return entrepot.cout_ouv / entrepot.capa_max;
+}
+
+/**
+ * @brief Vérifie si un magasin est approvisionné par un entrepôt
+ * 
+ * @param magasin Le magasin à vérifier
+ * @return true si le magasin est lié à un entrepôt
+ * @return false sinon
+ */
+bool est_approvisionne(const Magasin magasin) {
+    if (magasin.entrepot_lie != -1) {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * @brief Calcule la somme des coûts d'approvisionnement pour un entrepôt
+ * 
+ * @param entrepot L'entrepôt dont on somme les coûts
+ * @return int Somme des coûts d'approvisionnement
+ */
+int somme_approvisionnement(const Entrepot &entrepot) {
+    int somme = 0;
+    for (size_t i = 0; i < entrepot.cout_app.size(); i++) {
+        somme += entrepot.cout_app[i];
+    }
+    return somme;
+}
+

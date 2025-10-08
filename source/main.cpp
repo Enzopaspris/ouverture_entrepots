@@ -1,7 +1,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
-#include "../include/fonctions.hpp"
+#include "../include/fonctions_recursive.hpp"
 using namespace std;
 
 int main() {
