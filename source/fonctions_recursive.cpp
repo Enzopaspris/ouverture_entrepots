@@ -97,9 +97,9 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
     if (reponse == 1) {
         // Affiche uniquement la meilleure combinaison
         generer_combi(ent, choix, 0, m, meilleure_combinaison, cout_min, false);
-        cout << "Meilleure combinaison : ";
+        cout << "Meilleure combinaison : " << endl;
         for (int i = 0; i < m; i++) {
-            cout << "M" << i << "->E" << meilleure_combinaison[i] + 1 << " ";
+            cout << "Magasin " << i +1 << " -> Entrepôt " << meilleure_combinaison[i] + 1 << endl;
         }
         cout << "\nCoût total = " << cout_min << endl;
     } else {
