@@ -3,6 +3,7 @@
 #include <set>
 #include <vector>
 #include <climits>
+#include <random>
 #include <fstream>
 #include "structure.hpp"
 
@@ -17,5 +18,7 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m);
 int nb_magasin(vector<Entrepot>& entrepot);
 
 bool test_capacite(vector<Entrepot> ent,int m);
+
+int randInt(int min, int max, mt19937 &rng);
 
 void lancer_recursive();

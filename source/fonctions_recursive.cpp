@@ -4,11 +4,7 @@
  */
 
 #include "../include/fonctions_recursive.hpp"
-#include <iostream>
-#include <set>
-#include <vector>
-#include <climits>
-#include <fstream>
+
 
 using namespace std;
 
@@ -126,9 +122,18 @@ bool test_capacite(vector<Entrepot> ent,int m){
     return (total >= m);
 }
 
+/*Creation d'entrepots aleatoires*/
+
+
+int randInt(int min, int max, mt19937 &rng) {
+   uniform_int_distribution<int> dist(min, max);
+   return dist(rng);
+}
+
+
 void lancer_recursive(){
     // Exemple de données : 5 entrepôts, 10 magasins
-    vector<Entrepot> ent = {
+    /*vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1},
         {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 2},
         {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 4},
@@ -136,11 +141,50 @@ void lancer_recursive(){
         {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3},
     };
     
-    int m = nb_magasin(ent);
+    int m = nb_magasin(ent);*/
+    random_device rd;   // source de hasard
+    mt19937 rng(rd());  // générateur (Mersenne Twister)
 
-    if(test_capacite(ent,m)){
+
+
+
+  
+    int nb_ent_alea = randInt(1, 5, rng);
+    int nb_mag_alea = randInt(nb_ent_alea, 10, rng);
+
+
+    vector<Entrepot> ent = {};
+
+
+
+
+    for (int i = 0 ; i < nb_ent_alea ; i++) {
+        Entrepot e;
+        e.capa_max=randInt((nb_mag_alea/nb_ent_alea)+1, nb_mag_alea, rng);
+        for (int j = 0 ; j < nb_mag_alea ; j++) {
+            e.cout_app.push_back(randInt(1, 100, rng));
+        }
+        ent.push_back(e);
+      
+        /// Affichage manuel
+        std::cout << "Entrepot " << i+1
+                << " capa_max=" << e.capa_max
+                << ", cout_app=[";
+        for (size_t j = 0; j < e.cout_app.size(); ++j) {
+            std::cout << e.cout_app[j];
+            if (j < e.cout_app.size() - 1) std::cout << ", ";
+        }
+        std::cout << "]" << std::endl;
+    }
+
+
+    cout << nb_ent_alea << endl;
+    cout << nb_mag_alea << endl;
+
+
+    if(test_capacite(ent,nb_mag_alea)){
         // Appel de la fonction qui gère la combinaison et l'interaction
-        choix_meilleure_combinaison(ent, m);
+        choix_meilleure_combinaison(ent, nb_mag_alea);
     }
     else {
         cout << "Pas assez de capacité de livraison";
