@@ -8,6 +8,7 @@
 #include <set>
 #include <vector>
 #include <climits>
+#include <fstream>
 
 using namespace std;
 
@@ -82,6 +83,8 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
     }
 }
 
+
+
 /**
  * @brief Fonction principale pour gérer le choix de la meilleure combinaison.
  *        Demande à l'utilisateur s'il souhaite afficher la meilleure combinaison ou toutes.
@@ -111,4 +114,14 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
         cout << "Toutes les combinaisons :\n";
         generer_combi(ent, choix, 0, m, meilleure_combinaison, cout_min, true);
     }
+}
+
+
+bool test_capacite(vector<Entrepot> ent,int m){
+    int total = 0;
+    for(size_t i = 0; i < ent.size() ; i++){
+        total += ent[i].capa_max;
+    }
+
+    return (total >= m);
 }

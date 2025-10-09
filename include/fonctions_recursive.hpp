@@ -11,3 +11,5 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
 void choix_meilleure_combinaison(vector<Entrepot>& ent, int m);
 
 int nb_magasin(vector<Entrepot>& entrepot);
+
+bool test_capacite(vector<Entrepot> ent,int m);
