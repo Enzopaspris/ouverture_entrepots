@@ -40,15 +40,17 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
     // Cas de base : tous les magasins ont été affectés
     if (magasin == m) {
         int somme = 0;
-        set<int> entrepots_utilises;
 
         for (int i = 0; i < m; i++) {
             somme += ent[choix[i]].cout_app[i];
-            entrepots_utilises.insert(choix[i]);
+            ent[choix[i]].est_ouvert = true;
         }
 
-        for (int e : entrepots_utilises) {
-            somme += ent[e].cout_ouv;
+        for (int i = 0; i < ent.size(); i++) {
+            if (ent[i].est_ouvert) {
+                somme += ent[i].cout_ouv;
+                ent[i].est_ouvert = false;
+            }
         }
 
         if (afficher_tout) {
@@ -133,58 +135,58 @@ int randInt(int min, int max, mt19937 &rng) {
 
 void lancer_recursive(){
     // Exemple de données : 5 entrepôts, 10 magasins
-    /*vector<Entrepot> ent = {
+    vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1},
-        {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 2},
-        {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 4},
+        {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 4},
+        {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 2},
         {30, {25, 83, 96, 69, 83, 67, 59, 43, 85, 71}, 0, 1},
         {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3},
     };
     
-    int m = nb_magasin(ent);*/
-    random_device rd;   // source de hasard
-    mt19937 rng(rd());  // générateur (Mersenne Twister)
+    int m = nb_magasin(ent);
+    // random_device rd;   // source de hasard
+    // mt19937 rng(rd());  // générateur (Mersenne Twister)
+    //
+    //
+    //
+    //
+    //
+    // int nb_ent_alea = randInt(1, 5, rng);
+    // int nb_mag_alea = randInt(nb_ent_alea, 10, rng);
+    //
+    //
+    // vector<Entrepot> ent = {};
+    //
+    //
+    //
+    //
+    // for (int i = 0 ; i < nb_ent_alea ; i++) {
+    //     Entrepot e;
+    //     e.capa_max=randInt((nb_mag_alea/nb_ent_alea)+1, nb_mag_alea, rng);
+    //     for (int j = 0 ; j < nb_mag_alea ; j++) {
+    //         e.cout_app.push_back(randInt(1, 100, rng));
+    //     }
+    //     ent.push_back(e);
+    //
+    //     /// Affichage manuel
+    //     std::cout << "Entrepot " << i+1
+    //             << " capa_max=" << e.capa_max
+    //             << ", cout_app=[";
+    //     for (size_t j = 0; j < e.cout_app.size(); ++j) {
+    //         std::cout << e.cout_app[j];
+    //         if (j < e.cout_app.size() - 1) std::cout << ", ";
+    //     }
+    //     std::cout << "]" << std::endl;
+    // }
+    //
+    //
+    // cout << nb_ent_alea << endl;
+    // cout << nb_mag_alea << endl;
 
 
-
-
-  
-    int nb_ent_alea = randInt(1, 5, rng);
-    int nb_mag_alea = randInt(nb_ent_alea, 10, rng);
-
-
-    vector<Entrepot> ent = {};
-
-
-
-
-    for (int i = 0 ; i < nb_ent_alea ; i++) {
-        Entrepot e;
-        e.capa_max=randInt((nb_mag_alea/nb_ent_alea)+1, nb_mag_alea, rng);
-        for (int j = 0 ; j < nb_mag_alea ; j++) {
-            e.cout_app.push_back(randInt(1, 100, rng));
-        }
-        ent.push_back(e);
-      
-        /// Affichage manuel
-        std::cout << "Entrepot " << i+1
-                << " capa_max=" << e.capa_max
-                << ", cout_app=[";
-        for (size_t j = 0; j < e.cout_app.size(); ++j) {
-            std::cout << e.cout_app[j];
-            if (j < e.cout_app.size() - 1) std::cout << ", ";
-        }
-        std::cout << "]" << std::endl;
-    }
-
-
-    cout << nb_ent_alea << endl;
-    cout << nb_mag_alea << endl;
-
-
-    if(test_capacite(ent,nb_mag_alea)){
+    if(test_capacite(ent,m)){
         // Appel de la fonction qui gère la combinaison et l'interaction
-        choix_meilleure_combinaison(ent, nb_mag_alea);
+        choix_meilleure_combinaison(ent, m);
     }
     else {
         cout << "Pas assez de capacité de livraison";
