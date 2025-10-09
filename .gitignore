@@ -1,0 +1,34 @@
+# --- Dossiers de build ---
+/build/
+/out/
+/bin/
+/dist/
+
+# --- Fichiers générés par CMake ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# --- Binaries ---
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# --- Fichiers de logs ---
+*.log
+
+# --- IDE / éditeurs ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Système d'exploitation ---
+.DS_Store
+Thumbs.db
+
+
