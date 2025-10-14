@@ -99,7 +99,7 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
     int reponse;
     cin >> reponse;
 
-    if (reponse == 1) {
+    if (reponse) {
         // Affiche uniquement la meilleure combinaison
         generer_combi(ent, choix, 0, m, meilleure_combinaison, cout_min, false);
         cout << "Meilleure combinaison : " << endl;
