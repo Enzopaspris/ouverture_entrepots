@@ -3,7 +3,7 @@
  * @brief Fonctions pour générer les combinaisons magasins->entrepôts et choisir la meilleure
  */
 
-#include "../include/fonctions_recursive.hpp"
+#include "../include/fonctions_arborescente.hpp"
 
 
 using namespace std;
@@ -133,7 +133,7 @@ int randInt(int min, int max, mt19937 &rng) {
 }
 
 
-void lancer_recursive(){
+void lancer_arborescente(){
     // Exemple de données : 5 entrepôts, 10 magasins
     vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1},

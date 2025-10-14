@@ -21,4 +21,4 @@ bool test_capacite(vector<Entrepot> ent,int m);
 
 int randInt(int min, int max, mt19937 &rng);
 
-void lancer_recursive();
+void lancer_arborescente();

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../include/fonctions_recursive.hpp"  // pour lancer_recursive()
+#include "../include/fonctions_arborescente.hpp"  // pour lancer_recursive()
+#include "../include/fonctions_forcebrute.hpp"
 #include "../include/fonction_menu.hpp"         // le header correspondant
 
 using namespace std;
@@ -8,7 +9,8 @@ void lancer_menu() {
     int choix;
 
     cout << "=== MENU ===" << endl;
-    cout << "1. Afficher la méthode récursive" << endl;
+    cout << "1. Afficher la méthode forcebrute" << endl;
+    cout << "1. Afficher la méthode arborescente" << endl;
     cout << "2. Quitter" << endl;
     cout << "Votre choix : ";
     cin >> choix;
@@ -16,15 +18,19 @@ void lancer_menu() {
     switch (choix) {
         case 1:
             cout << "Vous avez choisi : méthode récursive" << endl;
-            lancer_recursive(); // Appel de ta fonction principale
+            lancer_force_brute(); // Appel forcebrute
+            break;
+        case 2:
+            cout << "Vous avez choisi : méthode arborescente" << endl;
+            lancer_arborescente(); // Appel arborescente
             break;
 
-        case 2:
+        case 3:
             cout << "Vous avez choisi de quitter, bonne journée !" << endl;
             break;
 
         default:
-            cout << "Choix invalide. Veuillez entrer 1 ou 2." << endl;
+            cout << "Choix invalide. Veuillez entrer un nombre compris de 1 à 3." << endl;
             break;
     }
 }
