@@ -9,9 +9,9 @@ void lancer_menu() {
     int choix;
 
     cout << "=== MENU ===" << endl;
-    cout << "1. Afficher la méthode forcebrute" << endl;
-    cout << "1. Afficher la méthode arborescente" << endl;
-    cout << "2. Quitter" << endl;
+    cout << "1. Afficher la méthode force brute" << endl;
+    cout << "2. Afficher la méthode arborescente" << endl;
+    cout << "3. Quitter" << endl;
     cout << "Votre choix : ";
     cin >> choix;
 
