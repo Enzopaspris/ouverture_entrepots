@@ -99,6 +99,8 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
     int reponse;
     cin >> reponse;
 
+    auto start = std::chrono::high_resolution_clock::now();
+
     if (reponse) {
         // Affiche uniquement la meilleure combinaison
         generer_combi(ent, choix, 0, m, meilleure_combinaison, cout_min, false);
@@ -107,11 +109,18 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
             cout << "Magasin " << i +1 << " -> Entrepôt " << meilleure_combinaison[i] + 1 << endl;
         }
         cout << "\nCoût total = " << cout_min << endl;
+
+
     } else {
         // Affiche toutes les combinaisons
         cout << "Toutes les combinaisons :\n";
         generer_combi(ent, choix, 0, m, meilleure_combinaison, cout_min, true);
     }
+
+    // Fin chronométrage
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    cout << "Temps d'exécution : " << duration.count() << " secondes" << endl;
 }
 
 

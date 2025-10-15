@@ -87,6 +87,8 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
     int reponse;
     cin >> reponse;
 
+    auto start = std::chrono::high_resolution_clock::now();
+
     if (reponse == 1) {
         // Affiche uniquement la meilleure combinaison
         generer_combi_force_brute(ent, choix, 0, m, meilleure_combinaison, cout_min, false);
@@ -104,6 +106,11 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
         cout << "\n--- Affichage de toutes les combinaisons (sans contraintes) ---\n" << endl;
         generer_combi_force_brute(ent, choix, 0, m, meilleure_combinaison, cout_min, true);
     }
+    
+    // Fin chronométrage
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    cout << "Temps d'exécution : " << duration.count() << " secondes" << endl;
 }
 
 /**
@@ -121,6 +128,5 @@ void lancer_force_brute() {
     
     int m = nb_magasin_force_brute(ent);
 
-    
     choix_meilleure_combinaison_force_brute(ent, m);
 }
