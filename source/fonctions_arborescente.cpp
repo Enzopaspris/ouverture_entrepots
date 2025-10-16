@@ -77,6 +77,11 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
             generer_combi(ent, choix, magasin + 1, m, meilleure_combinaison, cout_min, afficher_tout);
 
             ent[e].capa_actuel -= 1; // Backtracking : décrémente après retour récursif
+        }else {
+            for (int i = 0; i < m; i++) {
+                cout << "M" << i << "->E" << choix[i] + 1 << " ";
+            }
+            cout << " ⚠️ Possibilité abandonée car la capacité maximum d'un magasin a été dépassée ⚠️" << endl;
         }
     }
 }
@@ -99,7 +104,7 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
     int reponse;
     cin >> reponse;
 
-    auto start = std::chrono::high_resolution_clock::now();
+    // auto start = std::chrono::high_resolution_clock::now();
 
     if (reponse) {
         // Affiche uniquement la meilleure combinaison
@@ -118,9 +123,9 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m) {
     }
 
     // Fin chronométrage
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> duration = end - start;
-    cout << "Temps d'exécution : " << duration.count() << " secondes" << endl;
+    // auto end = std::chrono::high_resolution_clock::now();
+    // std::chrono::duration<double> duration = end - start;
+    // cout << "Temps d'exécution : " << duration.count() << " secondes" << endl;
 }
 
 
@@ -145,13 +150,18 @@ int randInt(int min, int max, mt19937 &rng) {
 void lancer_arborescente(){
     // Exemple de données : 5 entrepôts, 10 magasins
     vector<Entrepot> ent = {
-        {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1},
-        {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 4},
-        {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 2},
-        {30, {25, 83, 96, 69, 83, 67, 59, 43, 85, 71}, 0, 1},
-        {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3},
+        {30, {40, 1}, 0, 1, false},
+        {30, {24, 27}, 0, 2, false},
     };
-    
+
+    // vector<Entrepot> ent = {
+    //     {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1, false},
+    //     {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 4, false},
+    //     {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 2, false},
+    //     {30, {25, 83, 96, 69, 83, 67, 59, 43, 85, 71}, 0, 1, false},
+    //     {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3, false},
+    // };
+
     int m = nb_magasin(ent);
     // random_device rd;   // source de hasard
     // mt19937 rng(rd());  // générateur (Mersenne Twister)

@@ -106,7 +106,7 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
         cout << "\n--- Affichage de toutes les combinaisons (sans contraintes) ---\n" << endl;
         generer_combi_force_brute(ent, choix, 0, m, meilleure_combinaison, cout_min, true);
     }
-    
+
     // Fin chronométrage
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
