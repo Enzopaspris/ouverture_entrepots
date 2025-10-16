@@ -2,6 +2,8 @@ CMakeFiles/ouverture_entrepots.dir/source/fonctions_arborescente.cpp.o: \
  /home/etud/Documents/Projet_Entrepot/ouverture_entrepots/source/fonctions_arborescente.cpp \
  /usr/include/stdc-predef.h \
  /home/etud/Documents/Projet_Entrepot/ouverture_entrepots/source/../include/fonctions_arborescente.hpp \
+ /home/etud/Documents/Projet_Entrepot/ouverture_entrepots/source/../include/structure.hpp \
+ /home/etud/Documents/Projet_Entrepot/ouverture_entrepots/source/../include/include.hpp \
  /usr/include/c++/12/iostream \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -203,5 +205,4 @@ CMakeFiles/ouverture_entrepots.dir/source/fonctions_arborescente.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
  /usr/include/c++/12/bits/fstream.tcc /usr/include/c++/12/chrono \
  /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
- /usr/include/c++/12/ctime /usr/include/c++/12/bits/parse_numbers.h \
- /home/etud/Documents/Projet_Entrepot/ouverture_entrepots/source/../include/structure.hpp
+ /usr/include/c++/12/ctime /usr/include/c++/12/bits/parse_numbers.h

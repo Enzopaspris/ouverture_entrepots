@@ -2,5 +2,4 @@
 
 int main() {
     lancer_menu();
-    return 0;
 }

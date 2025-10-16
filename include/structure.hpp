@@ -1,6 +1,5 @@
 #pragma once
-#include <vector>
-using namespace std;
+#include "include.hpp"
 
 struct Entrepot {
     unsigned int cout_ouv = 30;
@@ -9,5 +8,3 @@ struct Entrepot {
     unsigned int capa_max;
     bool est_ouvert = false;
 };
-
-

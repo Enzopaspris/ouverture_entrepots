@@ -1,30 +1,16 @@
 #include "../include/fonctions_forcebrute.hpp"
 
-using namespace std;
-
-
 int nb_magasin_force_brute(const vector<Entrepot>& entrepot) {
     if (entrepot.empty()) return 0;
-    return entrepot[0].cout_app.size(); // nombre de magasins
+    return entrepot[0].cout_app.size();
 }
 
-/**
- * @brief Génère toutes les combinaisons possibles sans tenir compte de la capacité.
- * Calcule le coût total et, selon le mode, affiche tout ou garde le meilleur.
- * * @param ent Référence vers le vecteur des entrepôts.
- * @param choix Vecteur temporaire des affectations.
- * @param magasin Index du magasin actuel à affecter.
- * @param m Nombre total de magasins.
- * @param meilleure_combinaison Référence pour stocker la combinaison la moins chère.
- * @param cout_min Référence pour stocker le coût minimal.
- * @param afficher_tout Si vrai, affiche toutes les combinaisons; sinon, ne conserve que la meilleure.
- */
 void generer_combi_force_brute(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m, vector<int>& meilleure_combinaison, int& cout_min, bool afficher_tout) {
     // Cas de base : tous les magasins ont été affectés
     if (magasin == m) {
         int somme = 0;
 
-        // Calcul du coût : méthode originale avec le flag 'est_ouvert'
+        // Calcul du coût
         for (int i = 0; i < m; i++) {
             somme += ent[choix[i]].cout_app[i];
             ent[choix[i]].est_ouvert = true; // Marque les entrepôts utilisés
@@ -33,7 +19,7 @@ void generer_combi_force_brute(vector<Entrepot>& ent, vector<int>& choix, int ma
         for (size_t i = 0; i < ent.size(); i++) {
             if (ent[i].est_ouvert) {
                 somme += ent[i].cout_ouv;
-                ent[i].est_ouvert = false; // Réinitialise le flag pour la prochaine combinaison
+                ent[i].est_ouvert = false;
             }
         }
 
@@ -54,30 +40,18 @@ void generer_combi_force_brute(vector<Entrepot>& ent, vector<int>& choix, int ma
     }
 
     // Boucle sur tous les entrepôts possibles pour le magasin actuel
-    for (size_t e = 0; e < ent.size(); e++) {
-        //
-        // MODIFICATION PRINCIPALE : LA CONDITION DE CAPACITÉ A ÉTÉ RETIRÉE
-        // L'ancien code avait ici : if (depassement(ent[e])) { ... }
-        //
-        
+    for (size_t e = 0; e < ent.size(); e++) {        
         choix[magasin] = e;
-        // Le backtracking sur la capacité (capa_actuel) n'est plus nécessaire
+        // Le backtracking
         generer_combi_force_brute(ent, choix, magasin + 1, m, meilleure_combinaison, cout_min, afficher_tout);
     }
 }
 
-/**
- * @brief Fonction principale pour gérer le choix et lancer la génération.
- * C'est ici qu'on ajoute les avertissements.
- * * @param ent Référence vers le vecteur des entrepôts.
- * @param m Nombre total de magasins.
- */
 void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
     vector<int> choix(m);
     vector<int> meilleure_combinaison(m);
     int cout_min = INT32_MAX;
 
-    // --- AVERTISSEMENT AJOUTÉ ---
     cout << "***************************************************************" << endl;
     cout << "ATTENTION : Ce mode ignore complètement la capacité des entrepôts." << endl;
     cout << "Les solutions peuvent donc ne pas être réalisables en pratique." << endl;
@@ -87,6 +61,7 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
     int reponse;
     cin >> reponse;
 
+    //Début du Chronométrage
     auto start = std::chrono::high_resolution_clock::now();
 
     if (reponse == 1) {
@@ -98,7 +73,7 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
         }
         cout << "\n Coût total = " << cout_min << endl;
         
-        // --- PRÉCISION FINALE AJOUTÉE ---
+        // Précision finale 
         cout << "\n(Rappel : cette solution est le minimum mathématique et peut ignorer les capacités réelles)" << endl;
 
     } else {
@@ -113,11 +88,7 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m) {
     cout << "Temps d'exécution : " << duration.count() << " secondes" << endl;
 }
 
-/**
- * @brief Point d'entrée pour lancer le programme
- */
 void lancer_force_brute() {
-    // Tes données d'origine
     vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1, false},
         {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 4, false},

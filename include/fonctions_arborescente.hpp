@@ -1,14 +1,4 @@
-#pragma once
-#include <iostream>
-#include <set>
-#include <vector>
-#include <climits>
-#include <random>
-#include <fstream>
-#include <chrono>
 #include "structure.hpp"
-
-using namespace std;
 
 bool depassement(const Entrepot& entrepot);
 
@@ -23,3 +13,5 @@ bool test_capacite(vector<Entrepot> ent,int m);
 int randInt(int min, int max, mt19937 &rng);
 
 void lancer_arborescente();
+
+void lancer_arborescente_alea();
