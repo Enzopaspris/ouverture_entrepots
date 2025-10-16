@@ -7,6 +7,8 @@
 #include <fstream>
 #include <functional>
 #include <QString>
+#include <vector>
+#include <climits>
 #include "structure.hpp"
 
 using namespace std;
@@ -15,8 +17,7 @@ bool depassement(const Entrepot& entrepot);
 
 void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m, vector<int>& meilleure_combinaison, int& cout_min, bool afficher_tout = false);
 
-void choix_meilleure_combinaison(std::vector<Entrepot>& ent, int m, std::function<void(const QString&)> output_callback
-);
+void choix_meilleure_combinaison(vector<Entrepot>& ent, int m);
 
 int nb_magasin(const vector<Entrepot>& entrepot);
 

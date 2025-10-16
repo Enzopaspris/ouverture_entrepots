@@ -72,15 +72,14 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m, bool 
 }
 
 void lancer_force_brute(std::function<void(const QString&)> output_callback, bool afficher_tout) {
-    /*vector<Entrepot> ent = {
+    vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1, false},
         {30, {24, 27, 97, 55, 96, 22, 5, 73, 35, 65}, 0, 4, false},
         {30, {11, 82, 71, 73, 59, 29, 73, 13, 63, 55}, 0, 2, false},
         {30, {25, 83, 96, 69, 83, 67, 59, 43, 85, 71}, 0, 1, false},
         {30, {30, 74, 70, 61, 4, 59, 56, 96, 46, 95}, 0, 3, false},
     };
-    
+
     int m = nb_magasin_force_brute(ent);
     choix_meilleure_combinaison_force_brute(ent, m, afficher_tout, output_callback);
-    */
-    }
+}
