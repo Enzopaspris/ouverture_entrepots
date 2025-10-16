@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QIcon>
 #include <QDir>
 #include <QDebug>
 #include <functional>
@@ -86,6 +87,8 @@ void lancer_menu() {
 
     QWidget *window = new QWidget();
     window->setWindowTitle("Menu Entrepôt");
+    // Définir l'icône
+    window->setWindowIcon(QIcon("../data/icons.png"));
 
     // Boutons
     QPushButton *btnImporter = new QPushButton("Importer JSON", window);
