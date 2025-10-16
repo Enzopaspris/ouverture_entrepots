@@ -91,7 +91,7 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m, function<void(con
 
 // ----- Fonction principale pour lancer l'arborescence -----
 void lancer_arborescente(function<void(const QString&)> output_callback, bool afficher_tout) {
-    vector<Entrepot> ent = {
+    /*vector<Entrepot> ent = {
         {30, {20,28,74,2,46,42,1,10,93,47}, 0, 1},
         {30, {24,27,97,55,96,22,5,73,35,65}, 0, 4},
         {30, {11,82,71,73,59,29,73,13,63,55}, 0, 2},
@@ -104,5 +104,5 @@ void lancer_arborescente(function<void(const QString&)> output_callback, bool af
         choix_meilleure_combinaison(ent, m, output_callback);
     } else {
         output_callback("Pas assez de capacité de livraison");
-    }
+    }*/
 }
