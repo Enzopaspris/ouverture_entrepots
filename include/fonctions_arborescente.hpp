@@ -1,14 +1,3 @@
-#pragma once
-#include <iostream>
-#include <set>
-#include <vector>
-#include <climits>
-#include <random>
-#include <fstream>
-#include <functional>
-#include <QString>
-#include <vector>
-#include <climits>
 #include "structure.hpp"
 
 using namespace std;

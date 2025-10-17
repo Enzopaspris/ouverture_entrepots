@@ -1,30 +1,11 @@
-#include <QApplication>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QWidget>
-#include <QCheckBox>
-#include <QTextEdit>
-#include <QFileDialog>
-#include <QFile>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QIcon>
-#include <QDir>
-#include <QDebug>
-#include <functional>
-#include <vector>
-
-// Inclure les headers de tes fonctions
-
 #include "../include/structure.hpp"
 #include "fonctions_forcebrute.hpp"
 #include "fonctions_arborescente.hpp"
 
-
-// ----------------------
+// ************************************************
 // Fonction pour charger JSON ou valeurs par défaut
-// ----------------------
+// ************************************************
+
 static vector<Entrepot> charger_entrepots_par_defaut(QTextEdit* resultDisplay) {
     vector<Entrepot> entrepots;
     auto ui_callback = [resultDisplay](const QString &msg){ resultDisplay->append(msg); };
@@ -65,6 +46,7 @@ static vector<Entrepot> charger_entrepots_par_defaut(QTextEdit* resultDisplay) {
         ui_callback("Fichier JSON par défaut introuvable, utilisation des valeurs codées en dur.");
     }
 
+    // Si le chargement est impossible, utilisation des données du problème
     if (!json_ok) {
         entrepots = {
             {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1, false},
@@ -96,32 +78,29 @@ void lancer_menu() {
     QPushButton *btnArbo = new QPushButton("Méthode Arborescente", window);
     QPushButton *btnQuitter = new QPushButton("Quitter", window);
     
-
     // Case à cocher pour afficher toutes les étapes
     QCheckBox *chkAfficherTout = new QCheckBox("Afficher toutes les étapes", window);
-    chkAfficherTout->setChecked(false); // par défaut non coché
+    chkAfficherTout->setChecked(false);
 
     // Zone pour afficher les résultats
     QTextEdit *resultDisplay = new QTextEdit(window);
     resultDisplay->setReadOnly(true);
 
-    // Callback pour afficher les résultats dans l'interface
+    // Afficher les résultats dans l'interface
     auto ui_callback = [resultDisplay](const QString &msg) {
         resultDisplay->append(msg);
     };
     vector<Entrepot> entrepotsImportes = charger_entrepots_par_defaut(resultDisplay);
-    // Style bouton (optionnel)
+
+    // Style bouton
     QString style = "QPushButton { background-color: lightgray; color: black; font-weight: bold; padding: 8px; border-radius: 5px; }"
                     "QPushButton:hover { background-color: gray; }";
     btnImporter->setStyleSheet(style);
     btnForceBrute->setStyleSheet(style);
     btnArbo->setStyleSheet(style);
-    btnQuitter->setStyleSheet(style);
-
-    
+    btnQuitter->setStyleSheet(style);    
 
     // Connexion des boutons
-
     QObject::connect(btnImporter, &QPushButton::clicked, [=, &entrepotsImportes]() {
         QString chemin = QFileDialog::getOpenFileName(window, "Importer un fichier JSON", "", "Fichiers JSON (*.json)");
         if (chemin.isEmpty()) return;
@@ -138,7 +117,7 @@ void lancer_menu() {
             ui_callback("Fichier JSON invalide.");
             return;
         }
-        // Remplace entrepotsImportes par le contenu du fichier importé
+        // Remplace entrepots importes par le contenu du fichier importé
         entrepotsImportes.clear();
         for (const QJsonValue &v : doc.array()) {
             if (!v.isObject()) continue;

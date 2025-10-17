@@ -1,12 +1,3 @@
-#pragma once
-#include <iostream>
-#include <set>
-#include <vector>
-#include <climits>
-#include <random>
-#include <fstream>
-#include <functional>
-#include <QString>
 #include "structure.hpp"
 
 int nb_magasin_force_brute(const std::vector<Entrepot>& entrepot);

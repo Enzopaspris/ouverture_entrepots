@@ -1,30 +1,18 @@
 #include "fonctions_arborescente.hpp"
 
-using namespace std;
-
-// ----- Fonctions utilitaires -----
 int nb_magasin(vector<Entrepot>& entrepot) {
-    return entrepot[0].cout_app.size(); // nombre de magasins
+    return entrepot[0].cout_app.size();
 }
 
 bool depassement(const Entrepot& entrepot) {
     return entrepot.capa_actuel < entrepot.capa_max;
 }
 
-bool test_capacite(vector<Entrepot> ent, int m) {
-    int total = 0;
-    for(size_t i = 0; i < ent.size(); i++){
-        total += ent[i].capa_max;
-    }
-    return total >= m;
-}
-
-// ----- Génération des combinaisons avec affichage du chemin -----
 void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m, 
                    vector<int>& meilleure_combinaison, int& cout_min, 
                    bool afficher_tout,
                    function<void(const QString&)> output_callback,
-                   int profondeur = 0)  // profondeur pour indentation
+                   int profondeur = 0)
 {
     if (magasin == m) {
         int somme = 0;
@@ -61,7 +49,6 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
             ent[e].capa_actuel += 1;
 
             if (afficher_tout) {
-                // Indentation pour visualiser le chemin
                 QString indent;
                 for (int i = 0; i < profondeur; i++) indent += "  ";
                 output_callback(indent + QString("Attribuer magasin %1 à entrepôt %2").arg(magasin + 1).arg(e + 1));
@@ -74,7 +61,6 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
     }
 }
 
-// ----- Choix de la meilleure combinaison -----
 void choix_meilleure_combinaison(vector<Entrepot>& ent, int m, bool afficher_tout,
                                  function<void(const QString&)> output_callback) 
 {
@@ -94,7 +80,6 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m, bool afficher_tou
     }
 }
 
-// ----- Fonction principale pour lancer l'arborescence -----
 void lancer_arborescente(function<void(const QString&)> output_callback, bool afficher_tout) 
 {
     vector<Entrepot> ent = {
@@ -106,9 +91,5 @@ void lancer_arborescente(function<void(const QString&)> output_callback, bool af
     };
 
     int m = nb_magasin(ent);
-    if(test_capacite(ent, m)){
-        choix_meilleure_combinaison(ent, m, afficher_tout, output_callback);
-    } else {
-        output_callback("Pas assez de capacité de livraison");
-    }
+    choix_meilleure_combinaison(ent, m, afficher_tout, output_callback);
 }

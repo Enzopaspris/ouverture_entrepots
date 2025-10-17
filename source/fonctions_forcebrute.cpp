@@ -1,10 +1,4 @@
 #include "../include/fonctions_forcebrute.hpp"
-#include <climits>
-#include <functional>
-#include <QString>
-#include <vector>
-
-using namespace std;
 
 int nb_magasin_force_brute(const vector<Entrepot>& entrepot) {
     if (entrepot.empty()) return 0;
