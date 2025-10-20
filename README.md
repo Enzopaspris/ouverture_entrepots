@@ -42,11 +42,6 @@ Assurez-vous d’avoir installé un compilateur C++ (comme Clion ou Eclipse).
     ```
 3.  Compilation :
 
-     #### Avec g++
-     
-      ```sh
-      g++ main.cpp -o programme
-      ```
     #### Avec Cmake
       ```sh
       mkdir build
