@@ -121,6 +121,14 @@ Il y a 5 entrepôts pour 10 magasins
     "cout_app": [30, 74, 70, 61, 4, 59, 56, 96, 46, 95],
     "capa_actuel": 0,
     "capa_max": 3,
+
+
+## 🤝 Contribuer
+Si vous souhaitez proposer des améliorations ou signaler des bugs, contactez-nous à :
+- Dimitri Bougle
+- Enzo Martinet
+- Flavien Le Guerneve
+
     "est_ouvert": false
   }
 ]
