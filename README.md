@@ -13,6 +13,15 @@
   </p>
 </div>
 
+## 📑 Table des matières
+- [Objectif du projet](#-objectif-du-projet)
+- [Technologies utilisées](#-construit-avec)
+- [Installation](#-utiliser-lapplication)
+- [Fichier JSON](#fichier-json)
+- [Méthodes de résolution](#options)
+- [Exemple de données](#-données-par-défaut)
+
+
 ## 🎯 Objectif du projet
 
 Ce projet a été réalisé dans le cadre de nos études. L'objectif est simple, une entreprise souhaite ouvrir des entrepôts à certains endroits pour approvisionner ses magasins. <br>
