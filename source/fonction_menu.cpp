@@ -6,6 +6,11 @@
 // Fonction pour charger JSON ou valeurs par défaut
 // ************************************************
 
+/**
+ * @brief Charge les entrepôts à partir d’un fichier JSON ou utilise des valeurs par défaut.
+ * @param resultDisplay Zone d'affichage pour afficher les messages.
+ * @return Un vecteur d'entrepôts chargés.
+ */
 static vector<Entrepot> charger_entrepots_par_defaut(QTextEdit* resultDisplay) {
     vector<Entrepot> entrepots;
     auto ui_callback = [resultDisplay](const QString &msg){ resultDisplay->append(msg); };
@@ -61,7 +66,10 @@ static vector<Entrepot> charger_entrepots_par_defaut(QTextEdit* resultDisplay) {
     return entrepots;
 }
 
-
+/**
+ * @brief Lance l'interface graphique du menu principal.
+ * Gère l’importation JSON, le lancement des méthodes (Force Brute / Arborescente) et la sortie du programme.
+ */
 void lancer_menu() {
     int argc = 0;
     char **argv = nullptr;

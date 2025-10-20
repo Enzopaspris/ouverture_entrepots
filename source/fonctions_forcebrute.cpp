@@ -1,10 +1,26 @@
 #include "../include/fonctions_forcebrute.hpp"
 
+/**
+ * @brief Retourne le nombre de magasins à partir du premier entrepôt.
+ * @param entrepot Vecteur d'entrepôts.
+ * @return Nombre de magasins.
+ */
 int nb_magasin_force_brute(const vector<Entrepot>& entrepot) {
     if (entrepot.empty()) return 0;
     return entrepot[0].cout_app.size();
 }
 
+/**
+ * @brief Génère récursivement toutes les combinaisons possibles entre magasins et entrepôts.
+ * @param ent Liste des entrepôts.
+ * @param choix Combinaison actuelle.
+ * @param magasin Index du magasin en cours.
+ * @param m Nombre total de magasins.
+ * @param meilleure_combinaison Meilleure combinaison trouvée.
+ * @param cout_min Coût minimal trouvé.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ * @param output_callback Fonction de retour pour afficher les messages.
+ */
 void generer_combi_force_brute(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m,
                                vector<int>& meilleure_combinaison, int& cout_min,
                                bool afficher_tout,
@@ -45,6 +61,13 @@ void generer_combi_force_brute(vector<Entrepot>& ent, vector<int>& choix, int ma
     }
 }
 
+/**
+ * @brief Détermine la meilleure combinaison possible selon la méthode de force brute.
+ * @param ent Liste des entrepôts.
+ * @param m Nombre de magasins.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ * @param output_callback Fonction d'affichage.
+ */
 void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m, bool afficher_tout,
                                              std::function<void(const QString&)> output_callback) 
 {
@@ -65,6 +88,11 @@ void choix_meilleure_combinaison_force_brute(vector<Entrepot>& ent, int m, bool 
     }
 }
 
+/**
+ * @brief Lance la méthode de force brute sur les données par défaut.
+ * @param output_callback Fonction d'affichage.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ */
 void lancer_force_brute(std::function<void(const QString&)> output_callback, bool afficher_tout) {
     vector<Entrepot> ent = {
         {30, {20, 28, 74, 2, 46, 42, 1, 10, 93, 47}, 0, 1, false},

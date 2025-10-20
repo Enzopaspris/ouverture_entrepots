@@ -1,13 +1,35 @@
 #include "fonctions_arborescente.hpp"
 
+/**
+ * @brief Retourne le nombre de magasins à partir du premier entrepôt.
+ * @param entrepot Vecteur d'entrepôts.
+ * @return Nombre de magasins.
+ */
 int nb_magasin(vector<Entrepot>& entrepot) {
     return entrepot[0].cout_app.size();
 }
 
+/**
+ * @brief Vérifie si un entrepôt peut encore accueillir un magasin.
+ * @param entrepot Entrepôt à tester.
+ * @return true si la capacité n'est pas dépassée, false sinon.
+ */
 bool depassement(const Entrepot& entrepot) {
     return entrepot.capa_actuel < entrepot.capa_max;
 }
 
+/**
+ * @brief Génère récursivement les combinaisons possibles en respectant les capacités des entrepôts.
+ * @param ent Liste des entrepôts.
+ * @param choix Combinaison actuelle.
+ * @param magasin Index du magasin actuel.
+ * @param m Nombre total de magasins.
+ * @param meilleure_combinaison Meilleure combinaison trouvée.
+ * @param cout_min Coût minimal trouvé.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ * @param output_callback Fonction d'affichage.
+ * @param profondeur Profondeur actuelle dans la récursion (pour affichage).
+ */
 void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m, 
                    vector<int>& meilleure_combinaison, int& cout_min, 
                    bool afficher_tout,
@@ -61,6 +83,13 @@ void generer_combi(vector<Entrepot>& ent, vector<int>& choix, int magasin, int m
     }
 }
 
+/**
+ * @brief Trouve la meilleure combinaison possible selon la méthode arborescente.
+ * @param ent Liste des entrepôts.
+ * @param m Nombre de magasins.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ * @param output_callback Fonction d'affichage.
+ */
 void choix_meilleure_combinaison(vector<Entrepot>& ent, int m, bool afficher_tout,
                                  function<void(const QString&)> output_callback) 
 {
@@ -80,6 +109,11 @@ void choix_meilleure_combinaison(vector<Entrepot>& ent, int m, bool afficher_tou
     }
 }
 
+/**
+ * @brief Lance la méthode arborescente sur les données par défaut.
+ * @param output_callback Fonction d'affichage.
+ * @param afficher_tout Si vrai, affiche toutes les étapes.
+ */
 void lancer_arborescente(function<void(const QString&)> output_callback, bool afficher_tout) 
 {
     vector<Entrepot> ent = {
