@@ -20,6 +20,7 @@
 - [Fichier JSON](#fichier-json)
 - [Méthodes de résolution](#options)
 - [Exemple de données](#-données-par-défaut)
+- [Contributeur](#-contributeur)
 
 
 ## 🎯 Objectif du projet
@@ -123,8 +124,7 @@ Il y a 5 entrepôts pour 10 magasins
     "capa_max": 3,
 
 
-## 🤝 Contribuer
-Si vous souhaitez proposer des améliorations ou signaler des bugs, contactez-nous à :
+## 🤝 Contributeur
 - Dimitri Bougle
 - Enzo Martinet
 - Flavien Le Guerneve
