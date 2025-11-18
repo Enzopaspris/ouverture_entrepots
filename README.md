@@ -53,13 +53,22 @@ Assurez-vous d’avoir installé un compilateur C++ (comme Clion ou Eclipse).
 3.  Compilation :
 
     #### Avec Cmake
+    Si le dossier build n'est pas créé :
       ```sh
       mkdir build
       cd build
       cmake ..
       make
       ```
-  4.  Exécution
+      Si le dossier build est créé :
+      ```sh
+      rm -rf build/
+      mkdir build
+      cd build
+      cmake ..
+      make
+      ```
+  5.  Exécution
       ```sh
       ./programme
       ```
