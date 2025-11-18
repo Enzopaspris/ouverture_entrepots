@@ -29,7 +29,7 @@ Ce projet a été réalisé dans le cadre de nos études. L'objectif est simple,
 Un entrepôt a un coût d’ouverture, un coût d’approvisionnement par magasin et une capacité maximale qui
 désigne le nombre de magasins qu’il peut approvisionner. Un magasin doit être approvisionné par un seul
 entrepôt. L’objectif est de déterminer quel entrepôt doit ouvrir et pour chacun d’entre eux, quel magasin ils
-approvisionnent, tel que la somme des coûts engagés est minimisée.
+approvisionnent, tel que la somme des coûts engagés est minimisée. Il existe deux branches, la version de base sur un terminal (branche cpp) et la version amélioré avec une interface graphique (main)
 
 ### 🛠️ Construit avec
 
