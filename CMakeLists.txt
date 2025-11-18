@@ -12,8 +12,14 @@ include_directories(include)
 # Récupérer tous les fichiers source
 file(GLOB SOURCES "source/*.cpp")
 
+# Trouver Qt5
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
+
 # Créer l'exécutable
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Lier Qt à l'exécutable
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets)
 
 # Spécifier que l'exécutable sera généré dans le dossier build
 set_target_properties(${PROJECT_NAME} PROPERTIES
